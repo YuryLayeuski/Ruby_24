@@ -1,4 +1,4 @@
-Ruby_22
+Ruby_24
 ====================
 
-Repository 22
+Repository 24
