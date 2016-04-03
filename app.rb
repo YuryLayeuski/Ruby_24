@@ -22,10 +22,21 @@ post '/visit' do
 	@barber = params[:barber]
 	@color = params[:color]
 
-	if @username == ''
-		@error = 'Enter name'
-		return erb :visit
+	hh = { :username => 'Enter name', 
+			:phone => 'Enter phone number', 
+			:datetime => 'Enter date and time' }
+
+hh.each do |key, value|
+	#if parametr is empty
+	if params[key] == ''
+			#than variable 'error' assign value from hash 'hh'
+			#(value from hash hh is message about error)
+			#variable error assign message about error
+			@error = hh[key]
+			#return visit 
+			return erb :visit
 	end
+end
 
 	erb "OK!, username is #{@username}, #{@phone}, Your date is #{@datetime}, Your barber is: #{@barber}, #{@color}"
 
